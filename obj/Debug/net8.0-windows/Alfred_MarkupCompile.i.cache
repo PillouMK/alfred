@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\maxen\cours\Alfred\obj\Debug\net8.0-windows\
+E:\Projets\alfred\obj\Debug\net8.0-windows\
 Alfred
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\maxen\cours\Alfred\App.xaml
-11407045341
+E:\Projets\alfred\App.xaml
+5849376337
 
-10-1156847445
-198-294894759
-MainWindow.xaml;
+19-1699522851
+2461036125840
+CustomControls\TextBoxWithPlaceHolder.xaml;MainWindow.xaml;Pages\dashboard.xaml;Pages\Login.xaml;Pages\Register.xaml;
 
 False
 

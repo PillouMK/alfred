@@ -19,6 +19,7 @@ namespace Alfred
         public MainWindow()
         {
             InitializeComponent();
+            mainFrame.Navigate(new Uri("/pages/login.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }

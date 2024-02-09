@@ -1,0 +1,45 @@
+version: '3.3'
+services:
+
+  db:
+    container_name: user-auth
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'alfred'
+      MYSQL_USER: 'alfred'
+      MYSQL_PASSWORD: 'alfred_psw'
+      MYSQL_ROOT_PASSWORD: 'root_pasw'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - my-db:/var/lib/mysql
+    networks:
+      - sail
+
+  mailpit:
+    image: axllent/mailpit
+    container_name: mailpit
+    restart: always
+    volumes:
+      - ./data:/data
+    ports:
+      - '${FORWARD_MAILPIT_PORT:-1025}:1025'
+      - '${FORWARD_MAILPIT_DASHBOARD_PORT:-8025}:8025'
+    environment:
+      MP_MAX_MESSAGES: 5000
+      MP_DATA_FILE: /data/mailpit.db
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+    networks:
+      - sail
+
+volumes:
+  my-db:
+
+networks:
+  sail:
+    driver: bridge
+
