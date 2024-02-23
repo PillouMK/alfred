@@ -23,6 +23,7 @@ namespace Alfred.Pages
         public dashboard()
         {
             InitializeComponent();
+            Console.WriteLine(GlobalVariables.GlobalVariable);
         }
     }
 }

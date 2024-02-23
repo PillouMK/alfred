@@ -4,9 +4,12 @@ using System.Windows;
 
 namespace Alfred
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
+
+    public static class GlobalVariables
+    {
+        public static int GlobalVariable = 10;
+    }
+
     public partial class App : Application
     {
     }
