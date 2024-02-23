@@ -6,22 +6,24 @@
              xmlns:local="clr-namespace:Alfred.Components"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              mc:Ignorable="d"
-             d:DesignWidth="*" Height="50">
+             d:DesignWidth="500" Height="50">
 
     <Grid Background="#1B1842" VerticalAlignment="Top" Height="50">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="159*"/>
-            <ColumnDefinition/>
+            <!-- Utilisez "*"" pour occuper toute la largeur -->
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-            <Image Source="/Alfred;component/assets/logo_color.png" Width="40" Height="40"/>
-            <TextBlock Text="Alfred" VerticalAlignment="Center" Foreground="White"/>
+            <Image Source="/Alfred;component/assets/logo_color.png" Width="55" Height="55"/>
+            <TextBlock Text="Alfred" VerticalAlignment="Center" Foreground="White" FontSize="30"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="right" Margin="671,0,0,0">
-            <fa:ImageAwesome Icon="SignOut" VerticalAlignment="Center" Width="30" Height="30" Foreground="Red" Name="SignOut"/>
-            <Button Content="Icon2" Margin="0,0,10,0" />
-            <Button Content="Icon3" />
+        <!-- Supprimez la spécification de la marge fixe -->
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="right">
+            <fa:ImageAwesome Cursor="Hand" Icon="UserCircleOutline" Width="30" Height="30" Foreground="White" Margin="10" MouseLeftButtonDown="OnProfileClicked"/>
+            <fa:ImageAwesome Cursor="Hand" Icon="Gear" Width="30" Height="30" Foreground="White" Margin="10"/>
+            <fa:ImageAwesome Cursor="Hand" Icon="SignOut" Width="30" Height="30" Foreground="White" Margin="10" MouseLeftButtonDown="OnSignOutClicked"/>
         </StackPanel>
     </Grid>
 </UserControl>

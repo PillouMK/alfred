@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Alfred.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,5 +25,19 @@ namespace Alfred.Components
         {
             InitializeComponent();
         }
+        MainWindow mainWindow { get => Application.Current.MainWindow as MainWindow; }
+        private void OnSignOutClicked(object sender, RoutedEventArgs e)
+        {
+            GlobalVariables.User = new UserModel();
+            mainWindow.mainFrame.Navigate(new Uri("/Pages/Login.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void OnProfileClicked(object sender, RoutedEventArgs e)
+        {
+            mainWindow.mainFrame.Navigate(new Uri("/Pages/Profile.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+
+
     }
 }

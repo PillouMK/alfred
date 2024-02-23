@@ -182,3 +182,5 @@ E:\Projets\alfred\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
 E:\Projets\alfred\bin\Debug\net8.0-windows\Microsoft.AspNet.Identity.Core.dll
 E:\Projets\alfred\obj\Debug\net8.0-windows\Components\NavBar.g.cs
 E:\Projets\alfred\obj\Debug\net8.0-windows\Components\NavBar.baml
+E:\Projets\alfred\obj\Debug\net8.0-windows\Pages\Profile.g.cs
+E:\Projets\alfred\obj\Debug\net8.0-windows\Pages\Profile.baml

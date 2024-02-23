@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="assets\avatar.jpg" />
     <None Remove="assets\logo_color.png" />
   </ItemGroup>
 
@@ -42,6 +43,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="assets\avatar.jpg" />
     <Resource Include="assets\logo_color.png" />
   </ItemGroup>
 
