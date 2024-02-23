@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Alfred
+namespace Alfred.Components
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Logique d'interaction pour NavBar.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NavBar : UserControl
     {
-        public MainWindow()
+        public NavBar()
         {
             InitializeComponent();
-            mainFrame.Navigate(new Uri("/pages/dashboard.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }
