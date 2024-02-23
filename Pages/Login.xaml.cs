@@ -26,6 +26,7 @@ namespace Alfred.Pages
         public Login()
         {
             InitializeComponent();
+            Console.WriteLine('Hey');
         }
         MainWindow mainWindow { get => Application.Current.MainWindow as MainWindow; }
 
