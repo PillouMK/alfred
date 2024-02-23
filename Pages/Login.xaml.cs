@@ -14,14 +14,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Alfred.Controller;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Alfred.Pages
 {
-    /// <summary>
-    /// Login.xaml 的交互逻辑
-    /// </summary>
+
     public partial class Login : Page
     {
         public Login()
@@ -37,20 +36,22 @@ namespace Alfred.Pages
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             Disable_Button();
-            JObject jsonResult = await Call_Login_Endpoint();
-            bool is_success = jsonResult["success"].Value<bool>();
-            Enable_Button();
+            UserManager user = new UserManager();
+            JObject userRespond = await user.LoginUser(Email_Input.username.Text, Pasw_Input.username.Text);
 
-            if (is_success)
+            bool success = (bool)userRespond["success"];
+
+            if (success)
             {
-                Error_Message.Text = "";
+                JObject JsonResult = (JObject)userRespond["result"];
                 mainWindow.mainFrame.Navigate(new Uri("/Pages/dashboard.xaml", UriKind.RelativeOrAbsolute));
             }
             else
             {
-                Error_Message.Text = jsonResult["message"].Value<string>();
+                string error = (string)userRespond["msg"];
+                Error_Message.Text = error;
             }
-
+            Enable_Button();
         }
 
         private void Disable_Button()
@@ -67,36 +68,5 @@ namespace Alfred.Pages
             LoaderIcon.Visibility = Visibility.Collapsed;
         }
 
-        private async Task<JObject> Call_Login_Endpoint()
-        {
-            var Json_Data = new
-            {
-                email = Email_Input.username.Text,
-                password = Pasw_Input.username.Text
-            };
-
-            try
-            {
-                HttpClient client = new HttpClient();
-                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "http://127.0.0.1:8000/api/login");
-                string jsonDataString = JsonConvert.SerializeObject(Json_Data);
-                StringContent content = new StringContent(jsonDataString, System.Text.Encoding.UTF8, "application/json");
-                request.Content = content;
-
-                var response = await client.SendAsync(request);
-                response.EnsureSuccessStatusCode();
-                string jsonContent = await response.Content.ReadAsStringAsync();
-                return JObject.Parse(jsonContent);
-
-            }
-            catch (Exception ex)
-            {
-                Error_Message.Text = ex.Message;
-                JObject jsonObject = new JObject();
-                jsonObject["success"] = false;
-                jsonObject["message"] = ex.Message;
-                return jsonObject;
-            }
-        }
     }
 }

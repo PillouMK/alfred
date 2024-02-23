@@ -27,6 +27,7 @@ namespace Alfred.Pages
 
     public partial class Register : Page
     {
+        UserManager user;
         public Register()
         {
             InitializeComponent();
@@ -42,25 +43,22 @@ namespace Alfred.Pages
         {
             Disable_Button();
             UserManager user = new UserManager();
-            string userRespond = await user.RegisterUser(User_Input.username.Text, Email_Input.username.Text, Pasw_Input.username.Text);
+            JObject userRespond = await user.RegisterUser(User_Input.username.Text, Email_Input.username.Text, Pasw_Input.username.Text);
 
-            JObject jsonUser = JObject.Parse(userRespond);
-            bool success = (bool)jsonUser["success"];
+            bool success = (bool)userRespond["success"];
 
             if (success)
             {
-                Enable_Button();
-                string result = (string)jsonUser["result"];
+                JObject JsonResult = (JObject)userRespond["result"];
                 mainWindow.mainFrame.Navigate(new Uri("/Pages/dashboard.xaml", UriKind.RelativeOrAbsolute));
             }
             else
             {
-                Enable_Button();
-                string error = (string)jsonUser["msg"];
+                string error = (string)userRespond["msg"];
                 Error_Message.Text = error;
             }
 
-
+            Enable_Button();
         }
         private void Disable_Button()
         {

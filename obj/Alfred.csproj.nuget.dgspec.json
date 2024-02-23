@@ -45,6 +45,14 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "BCrypt.Net": {
+              "target": "Package",
+              "version": "[0.1.0, )"
+            },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Font.Awesome": {
               "target": "Package",
               "version": "[5.15.4, )"
@@ -52,6 +60,14 @@
             "FontAwesome.WPF": {
               "target": "Package",
               "version": "[4.7.0.9, )"
+            },
+            "Microsoft.AspNet.Identity.Core": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.AspNetCore.Cryptography.KeyDerivation": {
+              "target": "Package",
+              "version": "[8.0.1, )"
             },
             "Microsoft.Data.SqlClient": {
               "target": "Package",

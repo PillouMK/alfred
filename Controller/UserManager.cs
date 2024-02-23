@@ -10,6 +10,10 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Text.Json.Nodes;
 using Newtonsoft.Json.Linq;
+using Microsoft.AspNet.Identity;
+using System.Security.Policy;
+
+
 namespace Alfred.Controller
 {
     public class UserManager
@@ -20,74 +24,93 @@ namespace Alfred.Controller
         {
             dbContext = new AlfredContext();
         }
-        public string GetUserByEmail(string email)
+
+        public async Task<JObject> GetUserByEmail(string email)
         {
-            var userData = dbContext.Users
-                .Where(user => user.Email.Contains(email))
-                .ToList();
+            var userData = await dbContext.Users
+                .FirstOrDefaultAsync(user => user.Email == email);
 
-            bool userExists = userData.Any();
-            var jsonObject = new JObject();
-            jsonObject["exist"] = userExists;
-            if (userExists)
+            JObject jsonObject = new JObject();
+            if (userData != null)
             {
-                var UserJjson = JsonConvert.SerializeObject(userData);
-                jsonObject["userData"] = JArray.Parse(UserJjson);
-            }
-
-            return jsonObject.ToString();
-        }
-        public async Task<string> RegisterUser(string username, string email, string password)
-        {
-            string StringUser = GetUserByEmail(email);
-            JObject jsonUser = JObject.Parse(StringUser);
-            bool is_exist = (bool)jsonUser["exist"];
-            var jsonReturn = new JObject();
-
-            if (is_exist)
-            {
-                jsonReturn["success"] = false;
-                jsonReturn["msg"] = "Vous êtes déjas inscrit connectez-vous !";
-                return jsonReturn.ToString();
+                jsonObject["exist"] = true;
+                jsonObject["result"] = JObject.FromObject(userData);
             }
             else
             {
-                try
+                jsonObject["exist"] = false;
+            }
+
+            return jsonObject;
+        }
+        public async Task<JObject> RegisterUser(string username, string email, string password)
+        {
+            JObject jsonResult = await GetUserByEmail(email);
+
+            bool is_exist = (bool)jsonResult["exist"];
+
+            if (is_exist)
+            {
+                jsonResult["success"] = false;
+                jsonResult["msg"] = "Vous êtes déjas inscrit connectez-vous !";
+                return jsonResult;
+            }
+            else
+            {
+                var userModel = new User
                 {
-                    var userModel = new User
-                    {
-                        Uuid = Guid.NewGuid().ToString(),
-                        Username = username,
-                        Email = email
-                    };
+                    Uuid = Guid.NewGuid().ToString(),
+                    Username = username,
+                    Email = email
+                };
 
-                    userModel.SetPassword(password);
+                userModel.SetPassword(password);
 
-                    dbContext.Add(userModel);
-                    dbContext.SaveChanges();
+                dbContext.Add(userModel);
+                dbContext.SaveChanges();
 
-                    string User = GetUserByEmail(email);
-                    jsonReturn["success"] = true;
-                    jsonReturn["result"] = User;
-                    return jsonReturn.ToString();
-
-                }
-                catch (DbUpdateException ex)
-                {
-                    jsonReturn["success"] = false;
-                    jsonReturn["msg"] = ex.InnerException?.Message;
-                    return jsonReturn.ToString();
-                }
-                catch (Exception ex)
-                {
-                    jsonReturn["success"] = false;
-                    jsonReturn["msg"] = ex.Message;
-                    return jsonReturn.ToString();
-                }
+                JObject jsonUser = await GetUserByEmail(email);
+                jsonUser["success"] = true;
+                jsonUser["result"] = jsonUser;
+                return jsonUser;
             }
 
 
 
+        }
+        public async Task<JObject> LoginUser(string email, string password)
+        {
+            JObject jsonResult = await GetUserByEmail(email);
+
+            bool is_exist = (bool)jsonResult["exist"];
+
+            if (is_exist)
+            {
+                JObject jsonUser = (JObject)jsonResult["result"];
+                string db_password = (string)jsonUser["Password"];
+
+                var passwordHasher = new PasswordHasher();
+                bool isVerified = passwordHasher.VerifyHashedPassword(db_password, password) != PasswordVerificationResult.Failed;
+
+                if(isVerified)
+                {
+                    jsonResult["success"] = true;
+                    jsonResult["result"] = jsonResult;
+                }
+                else
+                {
+                    jsonResult["success"] = false;
+                    jsonResult["msg"] = "Mot de passe incorrect";
+                }
+
+                return jsonResult;
+            }
+            else
+            {
+                jsonResult["success"] = false;
+                jsonResult["msg"] = "Vous n'avez pas encore de compte. Inscrivez-vous !";
+                return jsonResult;
+            }
         }
     }
 }
