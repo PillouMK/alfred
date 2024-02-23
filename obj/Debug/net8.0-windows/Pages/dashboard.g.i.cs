@@ -63,7 +63,7 @@ namespace Alfred.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Alfred;V1.0.0.0;component/pages/dashboard.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Alfred;component/pages/dashboard.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Pages\dashboard.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
