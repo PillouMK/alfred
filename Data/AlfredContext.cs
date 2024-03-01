@@ -1,5 +1,4 @@
-﻿using Alfred.Models;
-
+﻿using Alfred.Models_db;
 using Microsoft.EntityFrameworkCore;
 using System.Windows;
 using MySql.EntityFrameworkCore.Extensions;

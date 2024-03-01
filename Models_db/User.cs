@@ -6,7 +6,7 @@ using System.Text;
 using Org.BouncyCastle.Crypto.Generators;
 using Microsoft.AspNet.Identity;
 
-namespace Alfred.Models
+namespace Alfred.Models_db
 {
     public class User
     {

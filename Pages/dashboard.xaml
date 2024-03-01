@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Alfred.Pages"
+      xmlns:local="clr-namespace:Alfred.Components"
       xmlns:fa="http://schemas.fontawesome.io/icons/"
       mc:Ignorable="d" 
       d:DesignHeight="720"
@@ -56,23 +56,18 @@
     </Page.Resources>
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="350"/>
-        </Grid.ColumnDefinitions>
+        <!-- Définir une rangée pour la barre de navigation -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> <!-- Définir la hauteur automatique pour la barre de navigation -->
+            <RowDefinition Height="*"/> <!-- Définir la hauteur restante pour le contenu de la page -->
+        </Grid.RowDefinitions>
 
-        <StackPanel Grid.Column="1" Orientation="Vertical" Background="Black">
-            
-        </StackPanel>
+        <!-- Utilisation du UserControl NavBar dans la première rangée -->
+        <local:NavBar Grid.Row="0"/>
 
-        <Border Grid.Column="2">
-            <StackPanel Orientation="Vertical" Margin="40">
-                <DockPanel LastChildFill="False">
-                    <TextBlock VerticalAlignment="Center" FontSize="20" FontWeight="SemiBold" Text="Profil"/>
-                    <fa:ImageAwesome Icon="SignOut" VerticalAlignment="Center" Width="30" Height="30" Foreground="Red" Name="SignOut" DockPanel.Dock="Right"/>
-                </DockPanel>
-            </StackPanel>
-        </Border>
+        <!-- Contenu de la page dans la deuxième rangée -->
+        <Grid Grid.Row="1">
+            <!-- Votre contenu de page ici -->
+        </Grid>
     </Grid>
 </Page>

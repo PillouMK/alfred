@@ -9,6 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="assets\avatar.jpg" />
+    <None Remove="assets\logo_color.png" />
+  </ItemGroup>
+
+  <ItemGroup>
 	<PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
 	<PackageReference Include="Microsoft.AspNet.Identity.Core" Version="2.2.4" />
     <PackageReference Include="BCrypt.Net" Version="0.1.0" />
@@ -34,6 +39,12 @@
 
   <ItemGroup>
     <Folder Include="Icon\" />
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\avatar.jpg" />
+    <Resource Include="assets\logo_color.png" />
   </ItemGroup>
 
 </Project>

@@ -138,6 +138,7 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+
         <Style TargetType="{x:Type Button}">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>

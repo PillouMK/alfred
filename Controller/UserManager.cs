@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using Alfred.Models;
+using Alfred.Models_db;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Text.Json.Nodes;
@@ -71,7 +71,7 @@ namespace Alfred.Controller
 
                 JObject jsonUser = await GetUserByEmail(email);
                 jsonUser["success"] = true;
-                jsonUser["result"] = jsonUser;
+
                 return jsonUser;
             }
 
@@ -95,7 +95,6 @@ namespace Alfred.Controller
                 if(isVerified)
                 {
                     jsonResult["success"] = true;
-                    jsonResult["result"] = jsonResult;
                 }
                 else
                 {

@@ -138,7 +138,7 @@
             <CustomControls:TextBoxWithPlaceHolder 
                 Grid.Row="1"
                 x:Name="User_Input"
-                PlaceHolder="Nom Prénom"/>
+                PlaceHolder="Nom d'utilisateur"/>
 
             <!--Email-->
             <CustomControls:TextBoxWithPlaceHolder 

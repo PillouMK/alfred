@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Alfred.Components.NavBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Alfred.Components"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             mc:Ignorable="d"
+             d:DesignWidth="500" Height="50">
+
+    <Grid Background="#1B1842" VerticalAlignment="Top" Height="50">
+        <Grid.ColumnDefinitions>
+            <!-- Utilisez "*"" pour occuper toute la largeur -->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Image Source="/Alfred;component/assets/logo_color.png" Width="55" Height="55"/>
+            <TextBlock Text="Alfred" VerticalAlignment="Center" Foreground="White" FontSize="30"/>
+        </StackPanel>
+
+        <!-- Supprimez la spécification de la marge fixe -->
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="right">
+            <fa:ImageAwesome Cursor="Hand" Icon="UserCircleOutline" Width="30" Height="30" Foreground="White" Margin="10" MouseLeftButtonDown="OnProfileClicked"/>
+            <fa:ImageAwesome Cursor="Hand" Icon="Gear" Width="30" Height="30" Foreground="White" Margin="10"/>
+            <fa:ImageAwesome Cursor="Hand" Icon="SignOut" Width="30" Height="30" Foreground="White" Margin="10" MouseLeftButtonDown="OnSignOutClicked"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -19,8 +19,9 @@ using Newtonsoft.Json.Linq;
 using MySql.Data.MySqlClient;
 using Microsoft.EntityFrameworkCore;
 using Alfred.Data;
-using Alfred.Models;
+using Alfred.Models_db;
 using Alfred.Controller;
+using Alfred.Models;
 
 namespace Alfred.Pages
 {
@@ -50,6 +51,7 @@ namespace Alfred.Pages
             if (success)
             {
                 JObject JsonResult = (JObject)userRespond["result"];
+                GlobalVariables.User = UserModel.FromJson(JsonResult);
                 mainWindow.mainFrame.Navigate(new Uri("/Pages/dashboard.xaml", UriKind.RelativeOrAbsolute));
             }
             else
