@@ -38,6 +38,15 @@ namespace Alfred.Components
         }
 
 
+        private void OnDashobardClicked(object sender, RoutedEventArgs e)
+        {
+            mainWindow.mainFrame.Navigate(new Uri("/Pages/Dashboard.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+
+        
+
+
 
     }
 }

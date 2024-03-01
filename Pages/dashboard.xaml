@@ -58,16 +58,16 @@
     <Grid>
         <!-- Définir une rangée pour la barre de navigation -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/> <!-- Définir la hauteur automatique pour la barre de navigation -->
-            <RowDefinition Height="*"/> <!-- Définir la hauteur restante pour le contenu de la page -->
+            <RowDefinition Height="Auto"/>
+            <!-- Définir la hauteur automatique pour la barre de navigation -->
+            <RowDefinition Height="*"/>
+            <!-- Définir la hauteur restante pour le contenu de la page -->
         </Grid.RowDefinitions>
 
         <!-- Utilisation du UserControl NavBar dans la première rangée -->
         <local:NavBar Grid.Row="0"/>
+        <local:LeftPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="left"/>
 
         <!-- Contenu de la page dans la deuxième rangée -->
-        <Grid Grid.Row="1">
-            <!-- Votre contenu de page ici -->
-        </Grid>
     </Grid>
 </Page>

@@ -14,7 +14,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" MouseLeftButtonDown="OnDashobardClicked" Cursor="Hand">
             <Image Source="/Alfred;component/assets/logo_color.png" Width="55" Height="55"/>
             <TextBlock Text="Alfred" VerticalAlignment="Center" Foreground="White" FontSize="30"/>
         </StackPanel>

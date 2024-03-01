@@ -18,3 +18,4 @@ _ReSharper*/
 .vscode/
 appsettings*.json
 *.sqlite
+.vs
