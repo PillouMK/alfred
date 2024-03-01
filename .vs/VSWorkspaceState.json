@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Components",
+    "\\Pages"
   ],
-  "SelectedNode": "\\Alfred.csproj",
+  "SelectedNode": "\\Alfred.sln",
   "PreviewInSolutionExplorer": false
 }
