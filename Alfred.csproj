@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\DatabaseModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="assets\avatar.jpg" />
     <None Remove="assets\logo_color.png" />
   </ItemGroup>
@@ -40,6 +44,7 @@
   <ItemGroup>
     <Folder Include="Icon\" />
     <Folder Include="Migrations\" />
+    <Folder Include="NewFolder\" />
   </ItemGroup>
 
   <ItemGroup>

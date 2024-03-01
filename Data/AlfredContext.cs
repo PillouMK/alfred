@@ -10,6 +10,7 @@ namespace Alfred.Data;
 public class AlfredContext : DbContext
 {
     public DbSet<User> Users { get; set; } = null!;
+    public DbSet<Project> Projects { get; set; } = null!;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
