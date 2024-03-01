@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 E:\Projets\alfred\App.xaml
-71661474214
+855580642
 
-15894021300
+16-1606818667
 251-906841185
-Components\NavBar.xaml;CustomControls\TextBoxWithPlaceHolder.xaml;MainWindow.xaml;Pages\dashboard.xaml;Pages\Login.xaml;Pages\Profile.xaml;Pages\Register.xaml;
+Components\LeftPanel.xaml;Components\NavBar.xaml;CustomControls\TextBoxWithPlaceHolder.xaml;MainWindow.xaml;Pages\dashboard.xaml;Pages\Login.xaml;Pages\Profile.xaml;Pages\Register.xaml;
 
 False
 
