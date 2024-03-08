@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Alfred.Migrations
 {
     /// <inheritdoc />
-    public partial class InitalMigration : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,15 +18,16 @@ namespace Alfred.Migrations
                 name: "Projects",
                 columns: table => new
                 {
-                    Name = table.Column<string>(type: "varchar(255)", nullable: false),
+                    Uuid = table.Column<string>(type: "varchar(255)", nullable: false),
                     UserUuid = table.Column<string>(type: "longtext", nullable: false),
+                    Name = table.Column<string>(type: "longtext", nullable: false),
                     Description = table.Column<string>(type: "longtext", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Projects", x => x.Name);
+                    table.PrimaryKey("PK_Projects", x => x.Uuid);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 

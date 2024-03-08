@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Alfred.Migrations
 {
     [DbContext(typeof(AlfredContext))]
-    [Migration("20240301125521_InitalMigration")]
-    partial class InitalMigration
+    [Migration("20240308084143_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,13 +24,17 @@ namespace Alfred.Migrations
 
             modelBuilder.Entity("Alfred.Models_db.Project", b =>
                 {
-                    b.Property<string>("Name")
+                    b.Property<string>("Uuid")
                         .HasColumnType("varchar(255)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -41,7 +45,7 @@ namespace Alfred.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.HasKey("Name");
+                    b.HasKey("Uuid");
 
                     b.ToTable("Projects");
                 });

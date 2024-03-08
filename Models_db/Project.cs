@@ -8,9 +8,9 @@ namespace Alfred.Models_db
 {
     public class Project
     {
-        public string UserUuid { get; set; }
-
         [Key]
+        public string Uuid { get; set; }
+        public string UserUuid { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime CreatedAt { get; set; }
@@ -22,6 +22,7 @@ namespace Alfred.Models_db
             CreatedAt = DateTime.Now;
             UpdatedAt = DateTime.Now;
             UserUuid = GlobalVariables.User.Uuid;
+            Uuid = Guid.NewGuid().ToString();
 
         }
     }
