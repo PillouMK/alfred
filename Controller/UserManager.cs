@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using Alfred.Models;
+using Alfred.Models_db;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Text.Json.Nodes;
@@ -18,16 +18,9 @@ namespace Alfred.Controller
 {
     public class UserManager
     {
-        private AlfredContext dbContext;
-
-        public UserManager()
-        {
-            dbContext = new AlfredContext();
-        }
-
         public async Task<JObject> GetUserByEmail(string email)
         {
-            var userData = await dbContext.Users
+            var userData = await GlobalVariables.dbContext.Users
                 .FirstOrDefaultAsync(user => user.Email == email);
 
             JObject jsonObject = new JObject();
@@ -66,12 +59,12 @@ namespace Alfred.Controller
 
                 userModel.SetPassword(password);
 
-                dbContext.Add(userModel);
-                dbContext.SaveChanges();
+                GlobalVariables.dbContext.Add(userModel);
+                GlobalVariables.dbContext.SaveChanges();
 
                 JObject jsonUser = await GetUserByEmail(email);
                 jsonUser["success"] = true;
-                jsonUser["result"] = jsonUser;
+
                 return jsonUser;
             }
 
@@ -95,7 +88,6 @@ namespace Alfred.Controller
                 if(isVerified)
                 {
                     jsonResult["success"] = true;
-                    jsonResult["result"] = jsonResult;
                 }
                 else
                 {

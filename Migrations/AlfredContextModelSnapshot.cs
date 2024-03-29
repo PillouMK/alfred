@@ -19,7 +19,35 @@ namespace Alfred.Migrations
                 .HasAnnotation("ProductVersion", "8.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("Alfred.Models.User", b =>
+            modelBuilder.Entity("Alfred.Models_db.Project", b =>
+                {
+                    b.Property<string>("Uuid")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("UserUuid")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Uuid");
+
+                    b.ToTable("Projects");
+                });
+
+            modelBuilder.Entity("Alfred.Models_db.User", b =>
                 {
                     b.Property<string>("Uuid")
                         .HasColumnType("varchar(255)");

@@ -138,6 +138,7 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+
         <Style TargetType="{x:Type Button}">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
@@ -171,10 +172,7 @@
         Height="70">
 
         <!--shadow-->
-        <Border.Effect>
-            <DropShadowEffect BlurRadius="23" ShadowDepth="5" Direction="270"
-                              Color="WhiteSmoke"/>
-        </Border.Effect>
+        
         <Grid Margin="20,6">
 
             <!--title-->

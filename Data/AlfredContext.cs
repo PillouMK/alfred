@@ -1,5 +1,4 @@
-﻿using Alfred.Models;
-
+﻿using Alfred.Models_db;
 using Microsoft.EntityFrameworkCore;
 using System.Windows;
 using MySql.EntityFrameworkCore.Extensions;
@@ -11,6 +10,7 @@ namespace Alfred.Data;
 public class AlfredContext : DbContext
 {
     public DbSet<User> Users { get; set; } = null!;
+    public DbSet<Project> Projects { get; set; } = null!;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

@@ -15,6 +15,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Alfred.Controller;
+using Alfred.Models;
+using Alfred.Models_db;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -26,7 +28,6 @@ namespace Alfred.Pages
         public Login()
         {
             InitializeComponent();
-            Console.WriteLine('Hey');
         }
         MainWindow mainWindow { get => Application.Current.MainWindow as MainWindow; }
 
@@ -44,7 +45,8 @@ namespace Alfred.Pages
 
             if (success)
             {
-                JObject JsonResult = (JObject)userRespond["result"];
+                JObject userReturn = (JObject)userRespond["result"];
+                GlobalVariables.User = UserModel.FromJson(userReturn);
                 mainWindow.mainFrame.Navigate(new Uri("/Pages/dashboard.xaml", UriKind.RelativeOrAbsolute));
             }
             else

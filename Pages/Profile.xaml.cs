@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -16,13 +17,15 @@ using System.Windows.Shapes;
 namespace Alfred.Pages
 {
     /// <summary>
-    /// dashboard.xaml 的交互逻辑
+    /// Logique d'interaction pour Profile.xaml
     /// </summary>
-    public partial class dashboard : Page
+    public partial class Profile : Page
     {
-        public dashboard()
+        public Profile()
         {
             InitializeComponent();
+            Username.Text = GlobalVariables.User.Username;
+            
         }
     }
 }

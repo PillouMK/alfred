@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="Alfred.Components.LeftPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Alfred.Components"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             Width="200" Background="#1B1842">
+
+    <StackPanel>
+
+        <!-- Onglet Projets -->
+        <Expander Header="Projets" Foreground="White">
+            <StackPanel Margin="10">
+                <TextBlock Margin="0,0,0,5">List des projets</TextBlock>
+                <ComboBox Width="180" Margin="0,0,0,2" x:Name="ProjectComboBox">
+                </ComboBox>
+                <Button x:Name="LoadProjectButton">Importer le projet</Button>
+                <TextBlock Margin="0,5,0,0">Nom du projet</TextBlock>
+                <TextBox Width="180" Margin="0,5,0,2" x:Name="ProjectNameInput"/>
+                <Grid>
+                    <Button Click="CreateProjectButton" x:Name="ProjectButton">Créez un nouveau projet</Button>
+                    <fa:ImageAwesome
+                        x:Name="LoaderIcon"
+                        Icon="CircleOutlineNotch"
+                        Spin="True"
+                        Height="10"
+                        Width="10"
+                        Margin="5"
+                        Foreground="black"
+                        Visibility="Collapsed"
+                        />
+                </Grid>
+            </StackPanel>
+        </Expander>
+        
+        <!-- Onglet Languages -->
+        <Expander Header="Languages" Foreground="White">
+            <StackPanel Margin="10">
+                <TextBox Width="180" />
+            </StackPanel>
+        </Expander>
+
+        <!-- Onglet Variable d'environnement -->
+        <Expander Header="Variable d'environnement" Foreground="White">
+            <StackPanel Margin="10">
+                <TextBox Width="180" />
+                <TextBox Width="180" Margin="0,5,0,0"/>
+                <TextBox Width="180" Margin="0,5,0,0"/>
+            </StackPanel>
+        </Expander>
+
+        <!-- Onglet Version -->
+        <Expander Header="Version" Foreground="White">
+            <StackPanel Margin="10">
+                <TextBox Width="180" />
+            </StackPanel>
+        </Expander>
+
+        <!-- Onglet Front/Back ou BDD -->
+        <Expander Header="Front/Back ou BDD" Foreground="White">
+            <StackPanel Margin="10">
+                <ComboBox Width="180">
+                    <ComboBoxItem Content="Front" />
+                    <ComboBoxItem Content="Back" />
+                    <ComboBoxItem Content="BDD" />
+                </ComboBox>
+            </StackPanel>
+        </Expander>
+    </StackPanel>
+</UserControl>
