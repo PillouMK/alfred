@@ -66,7 +66,7 @@
 
         <!-- Utilisation du UserControl NavBar dans la première rangée -->
         <local:NavBar Grid.Row="0"/>
-        <local:LeftPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="left"/>
+        <local:Content Grid.Row="1"/>
 
         <!-- Contenu de la page dans la deuxième rangée -->
     </Grid>

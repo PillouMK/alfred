@@ -13,11 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Alfred.Pages
+namespace Alfred.Components
 {
-    public partial class dashboard : Page
+    /// <summary>
+    /// Logique d'interaction pour Center.xaml
+    /// </summary>
+    public partial class Center : UserControl
     {
-        public dashboard()
+        public Center()
         {
             InitializeComponent();
         }
