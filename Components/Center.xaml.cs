@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Alfred.Components
 {
     /// <summary>
-    /// Logique d'interaction pour Panel.xaml
+    /// Logique d'interaction pour Center.xaml
     /// </summary>
-    public partial class LeftPanel : UserControl
+    public partial class Center : UserControl
     {
-        public LeftPanel()
+        public Center()
         {
             InitializeComponent();
         }
