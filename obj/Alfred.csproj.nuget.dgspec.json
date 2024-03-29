@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Projets\\alfred\\Alfred.csproj": {}
+    "C:\\Users\\hugor\\OneDrive\\Bureau\\workspace\\alfred\\Alfred.csproj": {}
   },
   "projects": {
-    "E:\\Projets\\alfred\\Alfred.csproj": {
+    "C:\\Users\\hugor\\OneDrive\\Bureau\\workspace\\alfred\\Alfred.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projets\\alfred\\Alfred.csproj",
+        "projectUniqueName": "C:\\Users\\hugor\\OneDrive\\Bureau\\workspace\\alfred\\Alfred.csproj",
         "projectName": "Alfred",
-        "projectPath": "E:\\Projets\\alfred\\Alfred.csproj",
-        "packagesPath": "C:\\Users\\mains\\.nuget\\packages\\",
-        "outputPath": "E:\\Projets\\alfred\\obj\\",
+        "projectPath": "C:\\Users\\hugor\\OneDrive\\Bureau\\workspace\\alfred\\Alfred.csproj",
+        "packagesPath": "C:\\Users\\hugor\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hugor\\OneDrive\\Bureau\\workspace\\alfred\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mains\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hugor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

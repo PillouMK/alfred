@@ -31,22 +31,37 @@
                 </Grid>
             </StackPanel>
         </Expander>
-        
-        <!-- Onglet Languages -->
-        <Expander Header="Languages" Foreground="White">
-            <StackPanel Margin="10">
-                <TextBox Width="180" />
-            </StackPanel>
-        </Expander>
 
         <!-- Onglet Variable d'environnement -->
         <Expander Header="Variable d'environnement" Foreground="White">
             <StackPanel Margin="10">
-                <TextBox Width="180" />
-                <TextBox Width="180" Margin="0,5,0,0"/>
-                <TextBox Width="180" Margin="0,5,0,0"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Width="180" />
+                    <TextBox Width="180" Margin="5,0,0,0" Grid.Column="1"/>
+                </Grid>
+                <Grid Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Width="180" />
+                    <TextBox Width="180" Margin="5,0,0,0" Grid.Column="1"/>
+                </Grid>
+                <Grid Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Width="180" />
+                    <TextBox Width="180" Margin="5,0,0,0" Grid.Column="1"/>
+                </Grid>
             </StackPanel>
         </Expander>
+      
 
         <!-- Onglet Version -->
         <Expander Header="Version" Foreground="White">
@@ -65,5 +80,22 @@
                 </ComboBox>
             </StackPanel>
         </Expander>
+
+        <Expander Header="Framework" Foreground="White">
+            <StackPanel Margin="10">
+                <ComboBox Width="180" x:Name="FrameworkComboBox">
+                    <ComboBoxItem Content="React" />
+                    <ComboBoxItem Content="Vue" />
+                    <ComboBoxItem Content="Angular" />
+                    <!-- Ajoutez d'autres frameworks si nécessaire -->
+                </ComboBox>
+                <TextBlock Margin="0,5,0,0">Chemin du projet</TextBlock>
+                <TextBox Width="180" Margin="0,5,0,2" x:Name="ProjectPathInput"/>
+                <Button x:Name="BrowseFolderButton" Content="Parcourir" Click="BrowseFolderButton_Click" />
+
+                <Button x:Name="GenerateProjectButton" Click="GenerateProject_Click">Générer le projet</Button>
+            </StackPanel>
+        </Expander>
+
     </StackPanel>
 </UserControl>
