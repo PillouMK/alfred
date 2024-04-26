@@ -33,7 +33,7 @@ namespace Alfred.Pages
         {
             InitializeComponent();
         }
-        MainWindow mainWindow { get => Application.Current.MainWindow as MainWindow; }
+        MainWindow mainWindow { get => System.Windows.Application.Current.MainWindow as MainWindow; }
 
         private void Switch_Button_Click(object sender, RoutedEventArgs e)
         {

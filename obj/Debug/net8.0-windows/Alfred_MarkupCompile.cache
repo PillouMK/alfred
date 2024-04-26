@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\hugor\OneDrive\Bureau\workspace\alfred\obj\Debug\net8.0-windows\
+C:\Users\maxen\cours\alfred\obj\Debug\net8.0-windows\
 Alfred
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\hugor\OneDrive\Bureau\workspace\alfred\App.xaml
+C:\Users\maxen\cours\alfred\App.xaml
 10-2008149299
 
 23-341426544
-252-1898988543
+259-452776271
 Components\Center.xaml;Components\Content.xaml;Components\LeftPanel.xaml;Components\NavBar.xaml;CustomControls\TextBoxWithPlaceHolder.xaml;MainWindow.xaml;Pages\dashboard.xaml;Pages\Login.xaml;Pages\Profile.xaml;Pages\Register.xaml;
 
 False

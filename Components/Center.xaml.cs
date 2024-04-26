@@ -18,7 +18,7 @@ namespace Alfred.Components
     /// <summary>
     /// Logique d'interaction pour Center.xaml
     /// </summary>
-    public partial class Center : UserControl
+    public partial class Center : System.Windows.Controls.UserControl
     {
         public Center()
         {

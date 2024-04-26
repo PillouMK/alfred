@@ -18,7 +18,7 @@ namespace Alfred.CustomControls
     /// <summary>
     /// TextBoxWithPlaceHolder.xaml 的交互逻辑
     /// </summary>
-    public partial class TextBoxWithPlaceHolder : UserControl
+    public partial class TextBoxWithPlaceHolder : System.Windows.Controls.UserControl
     {
         private string _errorMessage;
 

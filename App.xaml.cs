@@ -15,7 +15,7 @@ namespace Alfred
        public static AlfredContext dbContext = new AlfredContext();
     }
 
-    public partial class App : Application
+    public partial class App : System.Windows.Application
     {
     }
 

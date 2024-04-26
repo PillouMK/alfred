@@ -18,7 +18,7 @@ namespace Alfred.Components
     /// <summary>
     /// Logique d'interaction pour Content.xaml
     /// </summary>
-    public partial class Content : UserControl
+    public partial class Content : System.Windows.Controls.UserControl
     {
         public Content()
         {

@@ -35,49 +35,33 @@
         <!-- Onglet Variable d'environnement -->
         <Expander Header="Variable d'environnement" Foreground="White">
             <StackPanel Margin="10">
+                <!-- Entêtes pour les colonnes -->
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <TextBox Width="180" />
-                    <TextBox Width="180" Margin="5,0,0,0" Grid.Column="1"/>
+                    <TextBlock Text="Nom" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Valeur" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"/>
+                </Grid>
+                <!-- Zones de texte pour saisir les variables d'environnement -->
+                <Grid Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Width="180" x:Name="EnvName1"/>
+                    <TextBox Width="180" Margin="5,0,0,0" Grid.Column="1" x:Name="EnvValue1"/>
                 </Grid>
                 <Grid Margin="0,5,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <TextBox Width="180" />
-                    <TextBox Width="180" Margin="5,0,0,0" Grid.Column="1"/>
+                    <TextBox Width="180" x:Name="EnvName2"/>
+                    <TextBox Width="180" Margin="5,0,0,0" Grid.Column="1" x:Name="EnvValue2"/>
                 </Grid>
-                <Grid Margin="0,5,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <TextBox Width="180" />
-                    <TextBox Width="180" Margin="5,0,0,0" Grid.Column="1"/>
-                </Grid>
-            </StackPanel>
-        </Expander>
-      
-
-        <!-- Onglet Version -->
-        <Expander Header="Version" Foreground="White">
-            <StackPanel Margin="10">
-                <TextBox Width="180" />
-            </StackPanel>
-        </Expander>
-
-        <!-- Onglet Front/Back ou BDD -->
-        <Expander Header="Front/Back ou BDD" Foreground="White">
-            <StackPanel Margin="10">
-                <ComboBox Width="180">
-                    <ComboBoxItem Content="Front" />
-                    <ComboBoxItem Content="Back" />
-                    <ComboBoxItem Content="BDD" />
-                </ComboBox>
+                <!-- Vous pouvez ajouter d'autres lignes de variables d'environnement ici si nécessaire -->
             </StackPanel>
         </Expander>
 
@@ -93,7 +77,10 @@
                 <TextBox Width="180" Margin="0,5,0,2" x:Name="ProjectPathInput"/>
                 <Button x:Name="BrowseFolderButton" Content="Parcourir" Click="BrowseFolderButton_Click" />
 
-                <Button x:Name="GenerateProjectButton" Click="GenerateProject_Click">Générer le projet</Button>
+                <Grid>
+                    <Button x:Name="GenerateProjectButton" Content="Générer le projet" Click="GenerateProject_Click"/>
+                    <fa:ImageAwesome x:Name="GenerateLoaderIcon" Icon="Spinner" Spin="True" Width="20" Height="20" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
             </StackPanel>
         </Expander>
 

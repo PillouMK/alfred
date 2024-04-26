@@ -19,13 +19,13 @@ namespace Alfred.Components
     /// <summary>
     /// Logique d'interaction pour NavBar.xaml
     /// </summary>
-    public partial class NavBar : UserControl
+    public partial class NavBar : System.Windows.Controls.UserControl
     {
         public NavBar()
         {
             InitializeComponent();
         }
-        MainWindow mainWindow { get => Application.Current.MainWindow as MainWindow; }
+        MainWindow mainWindow { get => System.Windows.Application.Current.MainWindow as MainWindow; }
         private void OnSignOutClicked(object sender, RoutedEventArgs e)
         {
             GlobalVariables.User = new UserModel();

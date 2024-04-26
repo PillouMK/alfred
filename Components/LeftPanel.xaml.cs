@@ -40,6 +40,21 @@ namespace Alfred.Components
             }
 
         }
+        private void GenerateEnvFile(string projectPath)
+        {
+            var envFilePath = System.IO.Path.Combine(projectPath, ".env");
+            var envEntries = new List<string>
+    {
+        $"{EnvName1.Text}={EnvValue1.Text}",
+        $"{EnvName2.Text}={EnvValue2.Text}",
+
+        // Ajoutez d'autres lignes pour les autres champs de saisie si nécessaire
+    };
+            System.IO.File.WriteAllLines(envFilePath, envEntries);
+            System.Windows.MessageBox.Show($"Fichier .env généré à : {envFilePath}", "Fichier généré", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+
 
         private async void CreateProjectButton(object sender, RoutedEventArgs e)
         {
@@ -63,9 +78,24 @@ namespace Alfred.Components
             ProjectButton.Content = "Créez un nouveau projet";
             LoaderIcon.Visibility = Visibility.Collapsed;
         }
-
-        private void GenerateProject_Click(object sender, RoutedEventArgs e)
+        private void DisableGenerateButton()
         {
+            GenerateProjectButton.Visibility = Visibility.Collapsed; // Cache le bouton
+            GenerateLoaderIcon.Visibility = Visibility.Visible;      // Affiche le loader
+        }
+
+        private void EnableGenerateButton()
+        {
+            GenerateProjectButton.Visibility = Visibility.Visible;   // Affiche le bouton
+            GenerateLoaderIcon.Visibility = Visibility.Collapsed;    // Cache le loader
+        }
+
+
+
+        private async void GenerateProject_Click(object sender, RoutedEventArgs e)
+        {
+            DisableGenerateButton();
+
             var selectedFramework = (FrameworkComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
             var projectPath = ProjectPathInput.Text;
             var projectName = ProjectNameInput.Text;
@@ -73,20 +103,37 @@ namespace Alfred.Components
             if (string.IsNullOrWhiteSpace(projectPath) || selectedFramework == null || string.IsNullOrWhiteSpace(projectName))
             {
                 System.Windows.MessageBox.Show("Veuillez sélectionner un framework, spécifier un chemin valide et entrer un nom de projet.", "Information manquante", MessageBoxButton.OK, MessageBoxImage.Warning);
+                EnableGenerateButton();
                 return;
             }
 
-            // Remplacez les espaces par des tirets si nécessaire
             var safeProjectName = projectName.Replace(" ", "-");
-
-            switch (selectedFramework)
+            var fullProjectPath = System.IO.Path.Combine(projectPath, safeProjectName);
+            try
             {
-                case "React":
-                    ExecuteCommand($"npx create-react-app {safeProjectName}", projectPath);
-                    break;
-                    // Ajoutez des cas pour d'autres frameworks si nécessaire.
+                switch (selectedFramework)
+                {
+                    case "React":
+                        await Task.Run(() => ExecuteCommand($"npx create-react-app {safeProjectName}", projectPath));
+
+                        GenerateEnvFile(fullProjectPath);
+                        break;
+                        // Ajoutez des cas pour d'autres frameworks si nécessaire.
+                }
+                System.Windows.MessageBox.Show("Projet généré avec succès.", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+
+                System.Windows.MessageBox.Show($"Erreur lors de la génération du projet: {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                EnableGenerateButton();
             }
         }
+
+
 
 
 
