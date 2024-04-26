@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Alfred.Controller;
 using System.Windows.Forms;
+
 
 namespace Alfred.Components
 {
@@ -77,6 +77,7 @@ namespace Alfred.Components
             ProjectButton.IsEnabled = true;
             ProjectButton.Content = "Créez un nouveau projet";
             LoaderIcon.Visibility = Visibility.Collapsed;
+
         }
         private void DisableGenerateButton()
         {

@@ -1,8 +1,7 @@
 ﻿<UserControl x:Class="Alfred.Components.LeftPanel"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Alfred.Components"
-             xmlns:fa="http://schemas.fontawesome.io/icons/"
+                 xmlns:local="clr-namespace:Alfred.Components"
              Width="200" Background="#1B1842">
 
     <StackPanel>
@@ -29,6 +28,7 @@
                         Visibility="Collapsed"
                         />
                 </Grid>
+
             </StackPanel>
         </Expander>
 
