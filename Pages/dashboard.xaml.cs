@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Alfred.Pages
 {
-    /// <summary>
-    /// dashboard.xaml 的交互逻辑
-    /// </summary>
     public partial class dashboard : Page
     {
         public dashboard()

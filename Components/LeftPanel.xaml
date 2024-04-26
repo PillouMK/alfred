@@ -4,39 +4,85 @@
                  xmlns:local="clr-namespace:Alfred.Components"
              Width="200" Background="#1B1842">
 
-    <StackPanel Width="200">
-        <!-- Onglet Languages -->
-        <Expander Header="Languages" Foreground="White">
+    <StackPanel>
+
+        <!-- Onglet Projets -->
+        <Expander Header="Projets" Foreground="White">
             <StackPanel Margin="10">
-                <TextBox Width="180" />
+                <TextBlock Margin="0,0,0,5">List des projets</TextBlock>
+                <ComboBox Width="180" Margin="0,0,0,2" x:Name="ProjectComboBox">
+                </ComboBox>
+                <Button x:Name="LoadProjectButton">Importer le projet</Button>
+                <TextBlock Margin="0,5,0,0">Nom du projet</TextBlock>
+                <TextBox Width="180" Margin="0,5,0,2" x:Name="ProjectNameInput"/>
+                <Grid>
+                    <Button Click="CreateProjectButton" x:Name="ProjectButton">Créez un nouveau projet</Button>
+                    <fa:ImageAwesome
+                        x:Name="LoaderIcon"
+                        Icon="CircleOutlineNotch"
+                        Spin="True"
+                        Height="10"
+                        Width="10"
+                        Margin="5"
+                        Foreground="black"
+                        Visibility="Collapsed"
+                        />
+                </Grid>
+
             </StackPanel>
         </Expander>
 
         <!-- Onglet Variable d'environnement -->
         <Expander Header="Variable d'environnement" Foreground="White">
             <StackPanel Margin="10">
-                <TextBox Width="180" />
-                <TextBox Width="180" Margin="0,5,0,0"/>
-                <TextBox Width="180" Margin="0,5,0,0"/>
+                <!-- Entêtes pour les colonnes -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Nom" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Valeur" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"/>
+                </Grid>
+                <!-- Zones de texte pour saisir les variables d'environnement -->
+                <Grid Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Width="180" x:Name="EnvName1"/>
+                    <TextBox Width="180" Margin="5,0,0,0" Grid.Column="1" x:Name="EnvValue1"/>
+                </Grid>
+                <Grid Margin="0,5,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Width="180" x:Name="EnvName2"/>
+                    <TextBox Width="180" Margin="5,0,0,0" Grid.Column="1" x:Name="EnvValue2"/>
+                </Grid>
+                <!-- Vous pouvez ajouter d'autres lignes de variables d'environnement ici si nécessaire -->
             </StackPanel>
         </Expander>
 
-        <!-- Onglet Version -->
-        <Expander Header="Version" Foreground="White">
+        <Expander Header="Framework" Foreground="White">
             <StackPanel Margin="10">
-                <TextBox Width="180" />
-            </StackPanel>
-        </Expander>
-
-        <!-- Onglet Front/Back ou BDD -->
-        <Expander Header="Front/Back ou BDD" Foreground="White">
-            <StackPanel Margin="10">
-                <ComboBox Width="180">
-                    <ComboBoxItem Content="Front" />
-                    <ComboBoxItem Content="Back" />
-                    <ComboBoxItem Content="BDD" />
+                <ComboBox Width="180" x:Name="FrameworkComboBox">
+                    <ComboBoxItem Content="React" />
+                    <ComboBoxItem Content="Vue" />
+                    <ComboBoxItem Content="Angular" />
+                    <!-- Ajoutez d'autres frameworks si nécessaire -->
                 </ComboBox>
+                <TextBlock Margin="0,5,0,0">Chemin du projet</TextBlock>
+                <TextBox Width="180" Margin="0,5,0,2" x:Name="ProjectPathInput"/>
+                <Button x:Name="BrowseFolderButton" Content="Parcourir" Click="BrowseFolderButton_Click" />
+
+                <Grid>
+                    <Button x:Name="GenerateProjectButton" Content="Générer le projet" Click="GenerateProject_Click"/>
+                    <fa:ImageAwesome x:Name="GenerateLoaderIcon" Icon="Spinner" Spin="True" Width="20" Height="20" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
             </StackPanel>
         </Expander>
+
     </StackPanel>
 </UserControl>
